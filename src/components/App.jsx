@@ -1,19 +1,27 @@
 import Profile from 'components/Profiles/Profile';
-import Statistics from './Statistics/Statistics';
+import Statistics from 'components/Statistics/Statistics';
+import FriendList from 'components/FriendList/FriendList';
 import user from 'data/user';
 import data from 'data/data';
+import friends from 'data/friends';
+import css from 'components/App.module.css';
 
 export const App = () => {
   return (
-    <div>
-      <Profile
-        username={user.username}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        stats={user.stats}
-      />
-      <Statistics title="Upload stats" stats={data} />
+    <div className={css.wrapper}>
+      <div>
+        <Profile
+          username={user.username}
+          tag={user.tag}
+          location={user.location}
+          avatar={user.avatar}
+          stats={user.stats}
+        />
+        <Statistics title="Upload stats" stats={data} />
+      </div>
+      <div>
+        <FriendList friends={friends} />
+      </div>
     </div>
   );
 };
